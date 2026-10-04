@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medic Air | 2500 ₪ | Чистый воздух / אוויר נקי</title>
+  <meta name="description" content="Medic Air — очиститель воздуха. 3 запатентованных фильтра + UV-лампа. Эксклюзив 2500 ₪ вместо 3300 ₪. / מכשיר טיהור אוויר Medic Air במחיר בלעדי 2500 ₪">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600&family=Heebo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0ea5e9; --primary-dark: #0284c7; --accent: #22d3ee;
+      --success: #10b981; --dark: #0f172a; --gray: #64748b;
+      --light: #f8fafc; --white: #fff; --price: #ef4444;
+      --grad: linear-gradient(135deg, #0ea5e9 0%, #22d3ee 50%, #10b981 100%);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Open Sans',sans-serif; color:var(--dark); background:var(--light); line-height:1.6; }
+    html[lang="he"] body, body.he { font-family:'Heebo',sans-serif; }
+    h1,h2,h3,h4 { font-family:'Montserrat',sans-serif; font-weight:700; }
+    html[lang="he"] h1, html[lang="he"] h2, html[lang="he"] h3 { font-family:'Heebo',sans-serif; }
+    .container { max-width:1100px; margin:0 auto; padding:0 18px; }
+    .hidden { display:none !important; }
+
+    /* Lang switch */
+    .lang-bar {
+      position:fixed; top:14px; left:50%; transform:translateX(-50%); z-index:200;
+      display:flex; gap:4px; background:rgba(15,23,42,0.85); backdrop-filter:blur(12px);
+      padding:5px; border-radius:50px; box-shadow:0 8px 30px rgba(0,0,0,0.3);
+    }
+    .lang-btn {
+      padding:8px 18px; border:none; border-radius:50px; cursor:pointer;
+      font-weight:700; font-size:0.9rem; background:transparent; color:rgba(255,255,255,0.7);
+      transition:all 0.2s; font-family:inherit;
+    }
+    .lang-btn.active { background:var(--grad); color:white; }
+
+    /* Header */
+    header {
+      background:var(--white); box-shadow:0 2px 20px rgba(0,0,0,0.07);
+      position:sticky; top:0; z-index:100; padding-top:8px;
+    }
+    .header-inner { display:flex; justify-content:space-between; align-items:center; padding:12px 0; }
+    .logo { font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.4rem; color:var(--primary); text-decoration:none; }
+    .logo span { color:var(--dark); }
+    .nav-cta {
+      background:var(--grad); color:white; padding:10px 20px; border-radius:50px;
+      font-weight:600; text-decoration:none; font-size:0.9rem;
+    }
+
+    /* Hero */
+    .hero {
+      background:linear-gradient(160deg,#0f172a 0%,#0c4a6e 45%,#0ea5e9 100%);
+      color:white; padding:60px 0 70px; position:relative; overflow:hidden;
+    }
+    .hero-grid { display:grid; grid-template-columns:1.15fr 0.85fr; gap:40px; align-items:center; }
+    .badge {
+      display:inline-block; background:rgba(255,255,255,0.15); padding:6px 14px;
+      border-radius:50px; font-size:0.82rem; font-weight:600; margin-bottom:14px;
+      border:1px solid rgba(255,255,255,0.2);
+    }
+    .hero h1 { font-size:clamp(1.7rem,3.8vw,2.6rem); line-height:1.2; margin-bottom:14px; }
+    .hero h1 .hl { color:var(--accent); }
+    .hero-sub { font-size:1.05rem; opacity:0.9; margin-bottom:22px; max-width:500px; }
+    .price-box {
+      background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);
+      border-radius:18px; padding:18px 24px; margin-bottom:24px; display:inline-block;
+    }
+    .old-price { text-decoration:line-through; opacity:0.7; font-size:1.05rem; margin-right:10px; }
+    .new-price { font-size:2.2rem; font-weight:800; color:#fef08a; }
+    .price-label { font-size:0.85rem; opacity:0.85; margin-top:4px; }
+    .hero-btns { display:flex; flex-wrap:wrap; gap:12px; }
+    .btn-p {
+      background:white; color:var(--primary-dark); padding:14px 28px; border-radius:50px;
+      font-weight:700; text-decoration:none; font-size:1rem; display:inline-block;
+      box-shadow:0 8px 25px rgba(0,0,0,0.2); transition:transform 0.2s;
+    }
+    .btn-p:hover { transform:translateY(-2px); }
+    .btn-s {
+      background:transparent; color:white; padding:14px 24px; border-radius:50px;
+      font-weight:600; text-decoration:none; border:2px solid rgba(255,255,255,0.5);
+    }
+    .hero-video-wrap {
+      background:rgba(0,0,0,0.25); border-radius:20px; overflow:hidden;
+      border:1px solid rgba(255,255,255,0.15); aspect-ratio:9/16; max-height:480px;
+      margin:0 auto; max-width:280px;
+    }
+    .hero-video-wrap video { width:100%; height:100%; object-fit:cover; display:block; }
+
+    /* Trust */
+    .trust { background:white; padding:18px 0; border-bottom:1px solid #e2e8f0; }
+    .trust-inner { display:flex; justify-content:center; flex-wrap:wrap; gap:20px 36px; font-size:0.9rem; font-weight:600; color:var(--gray); }
+    .trust-item { display:flex; align-items:center; gap:6px; }
+    .trust-item span { color:var(--success); }
+
+    /* Sections */
+    section { padding:60px 0; }
+    .st { text-align:center; font-size:clamp(1.5rem,3vw,2.1rem); margin-bottom:10px; }
+    .ss { text-align:center; color:var(--gray); max-width:580px; margin:0 auto 36px; font-size:1rem; }
+
+    /* Video gallery */
+    .videos-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px;
+    }
+    .vid-card {
+      background:white; border-radius:18px; overflow:hidden;
+      box-shadow:0 4px 20px rgba(0,0,0,0.07); border:1px solid #f1f5f9;
+    }
+    .vid-card video {
+      width:100%; aspect-ratio:9/16; object-fit:cover; display:block; background:#0f172a;
+      max-height:420px;
+    }
+    .vid-card .info { padding:14px 16px; }
+    .vid-card h3 { font-size:1rem; margin-bottom:4px; }
+    .vid-card p { font-size:0.85rem; color:var(--gray); }
+
+    /* Features */
+    .feat-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
+    .feat {
+      background:white; border-radius:18px; padding:24px 20px;
+      box-shadow:0 4px 18px rgba(0,0,0,0.05); border:1px solid #f1f5f9;
+      transition:transform 0.2s;
+    }
+    .feat:hover { transform:translateY(-4px); }
+    .feat .ico { font-size:1.8rem; margin-bottom:12px; }
+    .feat h3 { font-size:1.05rem; margin-bottom:6px; }
+    .feat p { color:var(--gray); font-size:0.9rem; }
+
+    /* Scenarios dark */
+    .scen { background:#0f172a; color:white; }
+    .scen .st, .scen .ss { color:white; }
+    .scen .ss { opacity:0.8; }
+    .scen-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+    .scen-card {
+      background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);
+      border-radius:16px; padding:22px 18px;
+    }
+    .scen-card .em { font-size:2rem; margin-bottom:10px; }
+    .scen-card h3 { font-size:1.05rem; margin-bottom:6px; color:var(--accent); }
+    .scen-card p { font-size:0.88rem; opacity:0.85; }
+
+    /* Filters */
+    .filters-sec { background:white; }
+    .filters-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:center; }
+    .flist { list-style:none; }
+    .flist li {
+      display:flex; gap:12px; margin-bottom:14px; padding:14px;
+      background:var(--light); border-radius:12px; align-items:flex-start;
+    }
+    .fnum {
+      min-width:34px; height:34px; background:var(--primary); color:white;
+      border-radius:10px; display:flex; align-items:center; justify-content:center;
+      font-weight:700; font-size:0.9rem;
+    }
+    .flist strong { display:block; margin-bottom:2px; font-size:0.95rem; }
+    .flist span { color:var(--gray); font-size:0.85rem; }
+    .uv {
+      background:linear-gradient(160deg,#0c4a6e,#0ea5e9); color:white;
+      border-radius:20px; padding:36px 26px; text-align:center;
+    }
+    .uv .lamp { font-size:3.5rem; margin-bottom:12px; filter:drop-shadow(0 0 18px #22d3ee); }
+    .uv h3 { font-size:1.3rem; margin-bottom:8px; }
+    .uv p { opacity:0.9; font-size:0.9rem; }
+
+    /* CTA */
+    .cta { background:var(--grad); color:white; text-align:center; padding:70px 0; }
+    .cta h2 { font-size:clamp(1.5rem,3vw,2.2rem); margin-bottom:10px; }
+    .cta p { font-size:1.05rem; opacity:0.95; margin-bottom:20px; max-width:480px; margin-left:auto; margin-right:auto; }
+    .cta-price { font-size:2.6rem; font-weight:800; margin-bottom:6px; }
+    .cta-old { text-decoration:line-through; opacity:0.7; font-size:1.2rem; margin-right:8px; }
+    .cta .btn-p { background:white; color:var(--primary-dark); font-size:1.05rem; padding:16px 36px; margin-top:16px; }
+    .guar { margin-top:18px; font-size:0.9rem; opacity:0.9; }
+
+    /* Order */
+    .order { background:var(--light); }
+    .form-card {
+      max-width:480px; margin:0 auto; background:white; border-radius:22px;
+      padding:36px 28px; box-shadow:0 10px 40px rgba(0,0,0,0.08);
+    }
+    .form-card h3 { text-align:center; margin-bottom:20px; font-size:1.3rem; }
+    .fg { margin-bottom:14px; }
+    .fg label { display:block; font-weight:600; margin-bottom:5px; font-size:0.88rem; }
+    .fg input, .fg textarea {
+      width:100%; padding:12px 14px; border:2px solid #e2e8f0; border-radius:12px;
+      font-size:1rem; font-family:inherit; background:white;
+    }
+    .fg input:focus, .fg textarea:focus { outline:none; border-color:var(--primary); }
+    .sub {
+      width:100%; background:var(--grad); color:white; border:none; padding:15px;
+      border-radius:50px; font-size:1.05rem; font-weight:700; cursor:pointer;
+      font-family:inherit;
+    }
+
+    footer { background:var(--dark); color:white; padding:36px 0 28px; text-align:center; }
+    footer .logo { color:var(--accent); display:inline-block; margin-bottom:8px; }
+    footer p { opacity:0.7; font-size:0.88rem; }
+    .fnote { margin-top:16px; font-size:0.75rem; opacity:0.45; }
+
+    /* RTL */
+    html[dir="rtl"] .hero-sub { margin-right:0; }
+    html[dir="rtl"] .old-price { margin-right:0; margin-left:10px; }
+    html[dir="rtl"] .cta-old { margin-right:0; margin-left:8px; }
+
+    @media (max-width:800px) {
+      .hero-grid { grid-template-columns:1fr; text-align:center; }
+      .hero-sub { margin:0 auto 22px; }
+      .hero-btns { justify-content:center; }
+      .filters-grid { grid-template-columns:1fr; }
+      .hero-video-wrap { max-height:360px; max-width:220px; }
+      .lang-bar { top:8px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="lang-bar">
+  <button class="lang-btn active" data-lang="ru" onclick="setLang('ru')">🇷🇺 RU</button>
+  <button class="lang-btn" data-lang="he" onclick="setLang('he')">🇮🇱 HE</button>
+</div>
+
+<header>
+  <div class="container header-inner">
+    <a href="#" class="logo">🌬️ Medic<span>Air</span></a>
+    <a href="#order" class="nav-cta">
+      <span class="t-ru">Заказать 2500 ₪</span>
+      <span class="t-he hidden">להזמנה 2500 ₪</span>
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge">
+        <span class="t-ru">🔥 Эксклюзив от блогера • Только сейчас</span>
+        <span class="t-he hidden">🔥 בלעדי מהבלוגר • רק עכשיו</span>
+      </div>
+      <h1 class="t-ru">Дыши <span class="hl">швейцарским воздухом</span> дома, на кухне и в офисе</h1>
+      <h1 class="t-he hidden">נושם <span class="hl">אוויר שוויצרי</span> בבית, במטבח ובמשרד</h1>
+      <p class="hero-sub t-ru">
+        Medic Air — очиститель с 3 запатентованными фильтрами и синей UV-лампой. 
+        Втягивает дым, шерсть, запахи, вирусы. Помогает от храпа. Эксклюзивная цена только у меня.
+      </p>
+      <p class="hero-sub t-he hidden">
+        Medic Air — מכשיר טיהור עם 3 פילטרים פטנטיים ומנורה כחולה UV. 
+        שואב עשן, שערות, ריחות ווירוסים. עוזר נגד נחירות. מחיר בלעדי רק אצלי.
+      </p>
+      <div class="price-box">
+        <div>
+          <span class="old-price">3300 ₪</span>
+          <span class="new-price">2500 ₪</span>
+        </div>
+        <div class="price-label t-ru">Эксклюзивная цена только у меня</div>
+        <div class="price-label t-he hidden">מחיר בלעדי רק אצלי</div>
+      </div>
+      <div class="hero-btns">
+        <a href="#order" class="btn-p">
+          <span class="t-ru">Заказать сейчас</span>
+          <span class="t-he hidden">להזמין עכשיו</span>
+        </a>
+        <a href="#videos" class="btn-s">
+          <span class="t-ru">Смотреть ролики</span>
+          <span class="t-he hidden">לצפות בסרטונים</span>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="hero-video-wrap">
+        <video id="hero-video" controls playsinline muted loop poster="">
+          <source id="hero-src" src="videos/ru/full-ad.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="container trust-inner">
+    <div class="trust-item"><span>✓</span>
+      <span class="t-ru">3 запатентованных фильтра</span>
+      <span class="t-he hidden">3 פילטרים פטנטיים</span>
+    </div>
+    <div class="trust-item"><span>✓</span>
+      <span class="t-ru">UV-лампа убивает вирусы</span>
+      <span class="t-he hidden">מנורת UV הורגת וירוסים</span>
+    </div>
+    <div class="trust-item"><span>✓</span>
+      <span class="t-ru">Шерсть, дым, запахи</span>
+      <span class="t-he hidden">שערות, עשן, ריחות</span>
+    </div>
+    <div class="trust-item"><span>✓</span>
+      <span class="t-ru">Помогает от храпа</span>
+      <span class="t-he hidden">עוזר נגד נחירות</span>
+    </div>
+  </div>
+</div>
+
+<!-- VIDEOS -->
+<section id="videos">
+  <div class="container">
+    <h2 class="st t-ru">Наши рекламные ролики</h2>
+    <h2 class="st t-he hidden">הסרטונים הפרסומיים שלנו</h2>
+    <p class="ss t-ru">Полный ролик + отдельные сцены. Всё, что мы снимали вместе.</p>
+    <p class="ss t-he hidden">סרטון מלא + סצנות נפרדות. כל מה שצילמנו ביחד.</p>
+
+    <!-- Full ad -->
+    <div style="max-width:320px;margin:0 auto 40px;">
+      <div class="vid-card">
+        <video id="full-video" controls playsinline>
+          <source id="full-src" src="videos/ru/full-ad.mp4" type="video/mp4">
+        </video>
+        <div class="info">
+          <h3 class="t-ru">🎬 Полный рекламный ролик (~40 сек)</h3>
+          <h3 class="t-he hidden">🎬 סרטון פרסומי מלא (~40 שנ')</h3>
+          <p class="t-ru">Фильтры → Кухня → Питомцы → Храп → Цена 2500 ₪</p>
+          <p class="t-he hidden">פילטרים → מטבח → חיות מחמד → נחירות → מחיר 2500 ₪</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="videos-grid">
+      <div class="vid-card">
+        <video controls playsinline>
+          <source class="v-src" data-ru="videos/ru/01-filters.mp4" data-he="videos/he/01-filters.mp4" src="videos/ru/01-filters.mp4" type="video/mp4">
+        </video>
+        <div class="info">
+          <h3 class="t-ru">1. Фильтры + синяя лампа</h3>
+          <h3 class="t-he hidden">1. פילטרים + מנורה כחולה</h3>
+          <p class="t-ru">Открываем крышку, 3 запатентованных фильтра, UV убивает вирусы</p>
+          <p class="t-he hidden">פותחים מכסה, 3 פילטרים פטנטיים, UV הורג וירוסים</p>
+        </div>
+      </div>
+      <div class="vid-card">
+        <video controls playsinline>
+          <source class="v-src" data-ru="videos/ru/02-kitchen.mp4" data-he="videos/he/02-kitchen.mp4" src="videos/ru/02-kitchen.mp4" type="video/mp4">
+        </video>
+        <div class="info">
+          <h3 class="t-ru">2. Кухня — жарка без запаха</h3>
+          <h3 class="t-he hidden">2. מטבח — טיגון בלי ריח</h3>
+          <p class="t-ru">Дым от сковородки втягивается. Жена: «Какой приятный запах!»</p>
+          <p class="t-he hidden">עשן מהמחבת נשאב. אישה: «איזה ריח נעים!»</p>
+        </div>
+      </div>
+      <div class="vid-card">
+        <video controls playsinline>
+          <source class="v-src" data-ru="videos/ru/03-pets.mp4" data-he="videos/he/03-pets.mp4" src="videos/ru/03-pets.mp4" type="video/mp4">
+        </video>
+        <div class="info">
+          <h3 class="t-ru">3. Собаки, кошка и «швейцарский воздух»</h3>
+          <h3 class="t-he hidden">3. כלבים, חתול ו«אוויר שוויצרי»</h3>
+          <p class="t-ru">Шерсть, какашка кота — всё втягивает. Цена 2500 ₪</p>
+          <p class="t-he hidden">שערות, קקי של חתול — הכל נשאב. מחיר 2500 ₪</p>
+        </div>
+      </div>
+      <div class="vid-card">
+        <video controls playsinline>
+          <source class="v-src" data-ru="videos/ru/04-snoring.mp4" data-he="videos/he/04-snoring.mp4" src="videos/ru/04-snoring.mp4" type="video/mp4">
+        </video>
+        <div class="info">
+          <h3 class="t-ru">4. Спальня — против храпа</h3>
+          <h3 class="t-he hidden">4. חדר שינה — נגד נחירות</h3>
+          <p class="t-ru">Аппарат даёт чистый пар — храп исчезает. Спим спокойно.</p>
+          <p class="t-he hidden">המכשיר נותן אדים נקיים — הנחירות נעלמות. ישנים בשקט.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="container">
+    <h2 class="st t-ru">Почему Medic Air?</h2>
+    <h2 class="st t-he hidden">למה Medic Air?</h2>
+    <p class="ss t-ru">Всё, что показали в роликах — и даже больше.</p>
+    <p class="ss t-he hidden">כל מה שהראינו בסרטונים — ואפילו יותר.</p>
+    <div class="feat-grid">
+      <div class="feat">
+        <div class="ico">🔬</div>
+        <h3 class="t-ru">3 запатентованных фильтра</h3>
+        <h3 class="t-he hidden">3 פילטרים פטנטיים</h3>
+        <p class="t-ru">Предфильтр + HEPA + активированный уголь. Каждый — запатентованная разработка.</p>
+        <p class="t-he hidden">פילטר מקדים + HEPA + פחם פעיל. כל אחד — פיתוח פטנטי.</p>
+      </div>
+      <div class="feat">
+        <div class="ico">💙</div>
+        <h3 class="t-ru">Синяя UV-C лампа</h3>
+        <h3 class="t-he hidden">מנורת UV-C כחולה</h3>
+        <p class="t-ru">Убивает вирусы и бактерии. Безопасно, без озона.</p>
+        <p class="t-he hidden">הורגת וירוסים וחיידקים. בטוח, ללא אוזון.</p>
+      </div>
+      <div class="feat">
+        <div class="ico">🐕</div>
+        <h3 class="t-ru">Шерсть животных</h3>
+        <h3 class="t-he hidden">שערות בעלי חיים</h3>
+        <p class="t-ru">Собаки и кошки — шерсть летает. Аппарат втягивает всё.</p>
+        <p class="t-he hidden">כלבים וחתולים — שערות עפות. המכשיר שואב הכל.</p>
+      </div>
+      <div class="feat">
+        <div class="ico">🍳</div>
+        <h3 class="t-ru">Запахи на кухне</h3>
+        <h3 class="t-he hidden">ריחות במטבח</h3>
+        <p class="t-ru">Жарите — дым втягивается. В доме пахнет свежо.</p>
+        <p class="t-he hidden">מטוגנים — העשן נשאב. בבית ריח רענן.</p>
+      </div>
+      <div class="feat">
+        <div class="ico">😴</div>
+        <h3 class="t-ru">Помогает от храпа</h3>
+        <h3 class="t-he hidden">עוזר נגד נחירות</h3>
+        <p class="t-ru">Чистый пар ночью — храп ослабевает или исчезает.</p>
+        <p class="t-he hidden">אדים נקיים בלילה — הנחירות נחלשות או נעלמות.</p>
+      </div>
+      <div class="feat">
+        <div class="ico">🚭</div>
+        <h3 class="t-ru">Дым и пыль</h3>
+        <h3 class="t-he hidden">עשן ואבק</h3>
+        <p class="t-ru">Сигаретный дым, пыль, «газы» — втягивает. Легко дышать.</p>
+        <p class="t-he hidden">עשן סיגריות, אבק, «גזים» — נשאב. קל לנשום.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCENARIOS -->
+<section class="scen">
+  <div class="container">
+    <h2 class="st t-ru">Где работает</h2>
+    <h2 class="st t-he hidden">איפה זה עובד</h2>
+    <p class="ss t-ru">Реальные ситуации из наших роликов</p>
+    <p class="ss t-he hidden">מצבים אמיתיים מהסרטונים שלנו</p>
+    <div class="scen-grid">
+      <div class="scen-card">
+        <div class="em">🏠</div>
+        <h3 class="t-ru">Гостиная + питомцы</h3>
+        <h3 class="t-he hidden">סלון + חיות מחמד</h3>
+        <p class="t-ru">«Вроде дома сидим, а дышим швейцарским воздухом!»</p>
+        <p class="t-he hidden">«כאילו בבית יושבים, אבל נושמים אוויר שוויצרי!»</p>
+      </div>
+      <div class="scen-card">
+        <div class="em">🍳</div>
+        <h3 class="t-ru">Кухня</h3>
+        <h3 class="t-he hidden">מטבח</h3>
+        <p class="t-ru">Жарим — аппарат втягивает дым. Жена радуется свежему воздуху.</p>
+        <p class="t-he hidden">מטוגנים — המכשיר שואב עשן. האישה שמחה על אוויר רענן.</p>
+      </div>
+      <div class="scen-card">
+        <div class="em">🛏️</div>
+        <h3 class="t-ru">Спальня</h3>
+        <h3 class="t-he hidden">חדר שינה</h3>
+        <p class="t-ru">Храп → чистый пар → спокойный сон.</p>
+        <p class="t-he hidden">נחירות → אדים נקיים → שינה שקטה.</p>
+      </div>
+      <div class="scen-card">
+        <div class="em">💼</div>
+        <h3 class="t-ru">Офис</h3>
+        <h3 class="t-he hidden">משרד</h3>
+        <p class="t-ru">Чихи, пыль, дым — легко дышать, больше энергии.</p>
+        <p class="t-he hidden">עיטושים, אבק, עשן — קל לנשום, יותר אנרגיה.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTERS -->
+<section class="filters-sec">
+  <div class="container">
+    <h2 class="st t-ru">Внутри аппарата</h2>
+    <h2 class="st t-he hidden">בתוך המכשיר</h2>
+    <p class="ss t-ru">То, что мы показывали, открывая белую крышку</p>
+    <p class="ss t-he hidden">מה שהראינו כשפתחנו את המכסה הלבן</p>
+    <div class="filters-grid">
+      <ul class="flist">
+        <li>
+          <div class="fnum">1</div>
+          <div>
+            <strong class="t-ru">Предфильтр</strong>
+            <strong class="t-he hidden">פילטר מקדים</strong>
+            <span class="t-ru">Крупная пыль, шерсть, волосы</span>
+            <span class="t-he hidden">אבק גס, שערות, שיער</span>
+          </div>
+        </li>
+        <li>
+          <div class="fnum">2</div>
+          <div>
+            <strong class="t-ru">HEPA (медицинский)</strong>
+            <strong class="t-he hidden">HEPA (רפואי)</strong>
+            <span class="t-ru">99.97–99.99% частиц: пыльца, аллергены, вирусы</span>
+            <span class="t-he hidden">99.97–99.99% חלקיקים: אבקנים, אלרגנים, וירוסים</span>
+          </div>
+        </li>
+        <li>
+          <div class="fnum">3</div>
+          <div>
+            <strong class="t-ru">Активированный уголь</strong>
+            <strong class="t-he hidden">פחם פעיל</strong>
+            <span class="t-ru">Запахи, дым, химикаты, VOC</span>
+            <span class="t-he hidden">ריחות, עשן, כימיקלים, VOC</span>
+          </div>
+        </li>
+      </ul>
+      <div class="uv">
+        <div class="lamp">💡</div>
+        <h3 class="t-ru">Синяя UV-C лампа</h3>
+        <h3 class="t-he hidden">מנורת UV-C כחולה</h3>
+        <p class="t-ru">Убивает вирусы и бактерии, которые прошли фильтры. Безопасно, без озона. Именно её мы показывали в ролике.</p>
+        <p class="t-he hidden">הורגת וירוסים וחיידקים שעברו את הפילטרים. בטוח, ללא אוזון. בדיוק מה שהראינו בסרטון.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="price">
+  <div class="container">
+    <h2 class="t-ru">Эксклюзивная цена только у меня</h2>
+    <h2 class="t-he hidden">מחיר בלעדי רק אצלי</h2>
+    <p class="t-ru">Обычная цена — 3300 ₪. Для моих подписчиков:</p>
+    <p class="t-he hidden">מחיר רגיל — 3300 ₪. למנויים שלי:</p>
+    <div class="cta-price">
+      <span class="cta-old">3300 ₪</span> 2500 ₪
+    </div>
+    <p class="t-ru" style="margin-bottom:0;">Ограниченное количество. Не упусти!</p>
+    <p class="t-he hidden" style="margin-bottom:0;">כמות מוגבלת. אל תפספס!</p>
+    <a href="#order" class="btn-p">
+      <span class="t-ru">Хочу Medic Air за 2500 ₪</span>
+      <span class="t-he hidden">אני רוצה Medic Air ב-2500 ₪</span>
+    </a>
+    <div class="guar t-ru">✅ Доставка по Израилю • Гарантия • Как в роликах</div>
+    <div class="guar t-he hidden">✅ משלוח לכל הארץ • אחריות • כמו בסרטונים</div>
+  </div>
+</section>
+
+<!-- ORDER -->
+<section class="order" id="order">
+  <div class="container">
+    <div class="form-card">
+      <h3 class="t-ru">Оставить заявку</h3>
+      <h3 class="t-he hidden">השאר פנייה</h3>
+      <form onsubmit="event.preventDefault(); alert(document.documentElement.lang==='he' ? 'תודה! אחזור אליך בהקדם 🙌' : 'Спасибо! Я свяжусь с вами в ближайшее время 🙌');">
+        <div class="fg">
+          <label class="t-ru">Ваше имя</label>
+          <label class="t-he hidden">השם שלך</label>
+          <input type="text" name="name" required>
+        </div>
+        <div class="fg">
+          <label class="t-ru">Телефон / WhatsApp</label>
+          <label class="t-he hidden">טלפון / WhatsApp</label>
+          <input type="tel" name="phone" placeholder="+972 ..." required>
+        </div>
+        <div class="fg">
+          <label class="t-ru">Город</label>
+          <label class="t-he hidden">עיר</label>
+          <input type="text" name="city">
+        </div>
+        <div class="fg">
+          <label class="t-ru">Комментарий</label>
+          <label class="t-he hidden">הערה</label>
+          <textarea name="comment" rows="2"></textarea>
+        </div>
+        <button type="submit" class="sub">
+          <span class="t-ru">Заказать за 2500 ₪</span>
+          <span class="t-he hidden">להזמין ב-2500 ₪</span>
+        </button>
+      </form>
+      <p style="text-align:center;margin-top:14px;font-size:0.82rem;color:var(--gray);" class="t-ru">
+        Или напишите мне в WhatsApp / Telegram
+      </p>
+      <p style="text-align:center;margin-top:14px;font-size:0.82rem;color:var(--gray);" class="t-he hidden">
+        או כתוב לי ב-WhatsApp / Telegram
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="logo">🌬️ Medic<span style="color:white">Air</span></div>
+    <p class="t-ru">Эксклюзив от блогера • Дышите швейцарским воздухом</p>
+    <p class="t-he hidden">בלעדי מהבלוגר • נושמים אוויר שוויצרי</p>
+    <div class="fnote t-ru">
+      © 2026 • Лендинг + все ролики (RU / HE)<br>
+      2500 ₪ вместо 3300 ₪ — только через этого блогера
+    </div>
+    <div class="fnote t-he hidden">
+      © 2026 • דף נחיתה + כל הסרטונים (RU / HE)<br>
+      2500 ₪ במקום 3300 ₪ — רק דרך הבלוגר הזה
+    </div>
+  </div>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'he' ? 'rtl' : 'ltr';
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  document.querySelectorAll('.t-ru').forEach(el => el.classList.toggle('hidden', lang !== 'ru'));
+  document.querySelectorAll('.t-he').forEach(el => el.classList.toggle('hidden', lang !== 'he'));
+
+  // Switch all videos
+  const path = lang === 'he' ? 'he' : 'ru';
+  const hero = document.getElementById('hero-src');
+  const full = document.getElementById('full-src');
+  if (hero) {
+    hero.src = 'videos/' + path + '/full-ad.mp4';
+    hero.parentElement.load();
+  }
+  if (full) {
+    full.src = 'videos/' + path + '/full-ad.mp4';
+    full.parentElement.load();
+  }
+  document.querySelectorAll('.v-src').forEach(s => {
+    const src = s.getAttribute('data-' + lang);
+    if (src) {
+      s.src = src;
+      s.parentElement.load();
+    }
+  });
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
