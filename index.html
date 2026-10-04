@@ -268,7 +268,7 @@
     <div>
       <div class="hero-video-wrap">
         <video id="hero-video" controls playsinline muted loop poster="">
-          <source id="hero-src" src="videos/ru/full-ad.mp4" type="video/mp4">
+          <source id="hero-src" src="https://cdn.jsdelivr.net/gh/orlenok777/medicair-landing@main/videos/ru/full-ad.mp4" type="video/mp4">
         </video>
       </div>
     </div>
@@ -308,7 +308,7 @@
     <div style="max-width:320px;margin:0 auto 40px;">
       <div class="vid-card">
         <video id="full-video" controls playsinline>
-          <source id="full-src" src="videos/ru/full-ad.mp4" type="video/mp4">
+          <source id="full-src" src="https://cdn.jsdelivr.net/gh/orlenok777/medicair-landing@main/videos/ru/full-ad.mp4" type="video/mp4">
         </video>
         <div class="info">
           <h3 class="t-ru">🎬 Полный рекламный ролик (~40 сек)</h3>
@@ -322,7 +322,7 @@
     <div class="videos-grid">
       <div class="vid-card">
         <video controls playsinline>
-          <source class="v-src" data-ru="videos/ru/01-filters.mp4" data-he="videos/he/01-filters.mp4" src="videos/ru/01-filters.mp4" type="video/mp4">
+          <source class="v-src" data-ru="https://cdn.jsdelivr.net/gh/orlenok777/medicair-landing@main/videos/ru/01-filters.mp4" data-he="https://cdn.jsdelivr.net/gh/orlenok777/medicair-landing@main/videos/he/01-filters.mp4" src="https://cdn.jsdelivr.net/gh/orlenok777/medicair-landing@main/videos/ru/01-filters.mp4" type="video/mp4">
         </video>
         <div class="info">
           <h3 class="t-ru">1. Фильтры + синяя лампа</h3>
@@ -333,7 +333,7 @@
       </div>
       <div class="vid-card">
         <video controls playsinline>
-          <source class="v-src" data-ru="videos/ru/02-kitchen.mp4" data-he="videos/he/02-kitchen.mp4" src="videos/ru/02-kitchen.mp4" type="video/mp4">
+          <source class="v-src" data-ru="https://cdn.jsdelivr.net/gh/orlenok777/medicair-landing@main/videos/ru/02-kitchen.mp4" data-he="https://cdn.jsdelivr.net/gh/orlenok777/medicair-landing@main/videos/he/02-kitchen.mp4" src="https://cdn.jsdelivr.net/gh/orlenok777/medicair-landing@main/videos/ru/02-kitchen.mp4" type="video/mp4">
         </video>
         <div class="info">
           <h3 class="t-ru">2. Кухня — жарка без запаха</h3>
@@ -344,7 +344,7 @@
       </div>
       <div class="vid-card">
         <video controls playsinline>
-          <source class="v-src" data-ru="videos/ru/03-pets.mp4" data-he="videos/he/03-pets.mp4" src="videos/ru/03-pets.mp4" type="video/mp4">
+          <source class="v-src" data-ru="https://cdn.jsdelivr.net/gh/orlenok777/medicair-landing@main/videos/ru/03-pets.mp4" data-he="https://cdn.jsdelivr.net/gh/orlenok777/medicair-landing@main/videos/he/03-pets.mp4" src="https://cdn.jsdelivr.net/gh/orlenok777/medicair-landing@main/videos/ru/03-pets.mp4" type="video/mp4">
         </video>
         <div class="info">
           <h3 class="t-ru">3. Собаки, кошка и «швейцарский воздух»</h3>
@@ -355,7 +355,7 @@
       </div>
       <div class="vid-card">
         <video controls playsinline>
-          <source class="v-src" data-ru="videos/ru/04-snoring.mp4" data-he="videos/he/04-snoring.mp4" src="videos/ru/04-snoring.mp4" type="video/mp4">
+          <source class="v-src" data-ru="https://cdn.jsdelivr.net/gh/orlenok777/medicair-landing@main/videos/ru/04-snoring.mp4" data-he="https://cdn.jsdelivr.net/gh/orlenok777/medicair-landing@main/videos/he/04-snoring.mp4" src="https://cdn.jsdelivr.net/gh/orlenok777/medicair-landing@main/videos/ru/04-snoring.mp4" type="video/mp4">
         </video>
         <div class="info">
           <h3 class="t-ru">4. Спальня — против храпа</h3>
@@ -602,11 +602,11 @@ function setLang(lang) {
   const hero = document.getElementById('hero-src');
   const full = document.getElementById('full-src');
   if (hero) {
-    hero.src = 'videos/' + path + '/full-ad.mp4';
+    hero.src = 'https://cdn.jsdelivr.net/gh/orlenok777/medicair-landing@main/videos/' + path + '/full-ad.mp4';
     hero.parentElement.load();
   }
   if (full) {
-    full.src = 'videos/' + path + '/full-ad.mp4';
+    full.src = 'https://cdn.jsdelivr.net/gh/orlenok777/medicair-landing@main/videos/' + path + '/full-ad.mp4';
     full.parentElement.load();
   }
   document.querySelectorAll('.v-src').forEach(s => {
